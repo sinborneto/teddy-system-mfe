@@ -1,0 +1,54 @@
+:root {
+  --p-tabs-active-bar-background: #ff5733 !important;
+}
+
+
+.sidebar {
+  width: 260px;
+}
+
+.header-sidebar{
+  height: 128px;
+  align-content: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+.fixed-height {
+  height: 100px;
+}
+
+.user-name {
+  font-weight: 800;
+}
+
+.nav {
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.nav-link:hover {
+  color: #ff6600;
+}
+
+.nav-link i {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.p-tab-active {
+  border-color: rgba(236, 103, 36, 1);
+  color: rgba(236, 103, 36, 1);
+}

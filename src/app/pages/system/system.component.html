@@ -1,1 +1,56 @@
-<h1>System {{ this.userName }}</h1>
+<div class="d-flex align-items-center justify-content-between px-4 fixed-height">
+  <div>
+    <button class="btn text-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+      ☰
+    </button>
+
+    <img [src]="'assets/shared/image/logo_dark.svg'" alt="Logo">
+  </div>
+
+
+  <p-tabs (valueChange)="changeTab($event)" value="0">
+    <p-tablist>
+        <p-tab value="0">Clientes</p-tab>
+        <p-tab value="1">Clientes selecionados</p-tab>
+        <p-tab value="2" (click)="logout($event)">Sair</p-tab>
+    </p-tablist>
+  </p-tabs>
+
+  <p class="ms-3 mb-0">Olá, <span class="user-name">{{ userName }}</span></p>
+</div>
+
+<div [ngSwitch]="activeTab">
+  <app-customers *ngSwitchCase="0"></app-customers>
+  <app-customers-selected *ngSwitchCase="1"></app-customers-selected>
+  <p *ngSwitchCase="2">Saindo...</p>
+</div>
+
+
+
+<div class="offcanvas offcanvas-start sidebar" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+  <div class="header-sidebar">
+    <img [src]="'assets/shared/image/logo_dark.svg'" alt="Logo">
+  </div>
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="transform: scale(0.7);"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="/login">
+          <i class="bi bi-house-door"></i> Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [href]="'/system;name='+ userName">
+          <i class="bi bi-people-fill"></i> Clientes
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">
+          <i class="bi bi-grid"></i> Produtos
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

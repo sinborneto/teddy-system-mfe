@@ -1,0 +1,63 @@
+.customers-container {
+  flex: 1;
+  background: rgba(245, 245, 245, 1);
+  display: flex;
+  padding: 120px;
+  height: 100%;
+  flex-flow: column;
+  gap: 20px;
+}
+
+.header-text {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.card-item {
+  flex: 1 1 calc(25% - 16px);
+  box-sizing: border-box;
+}
+
+button {
+  background-color: transparent; /* Fundo transparente */
+  border: 2px solid rgba(236, 103, 36, 1); /* Borda com a cor especificada */
+  color: rgba(236, 103, 36, 1); /* Cor da letra */
+  padding: 10px 20px; /* Espaçamento interno (ajustável) */
+  width: 100%; /* Ocupa toda a largura do contêiner */
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Deixa o texto em negrito */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  text-align: center; /* Alinha o texto no centro */
+  border-radius: 5px; /* Arredonda os cantos da borda (opcional) */
+  transition: all 0.3s ease; /* Transição suave para efeitos */
+}
+
+button:hover {
+  background-color: rgba(236, 103, 36, 0.1); /* Adiciona um fundo sutil no hover */
+  border-color: rgba(236, 103, 36, 1); /* Borda permanece igual no hover */
+  color: rgba(236, 103, 36, 1); /* Cor da letra no hover */
+}
+
+@media (max-width: 1200px) {
+  .card-item {
+    flex: 1 1 calc(33.33% - 16px);
+  }
+}
+
+@media (max-width: 800px) {
+  .card-item {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-item {
+    flex: 1 1 100%;
+  }
+}

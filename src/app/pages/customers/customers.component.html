@@ -1,0 +1,18 @@
+<div class="customers-container">
+  <p><span>{{clients.length}}</span> clientes encontrados:</p>
+  <div class="card-container">
+    <div *ngFor="let client of clients" class="card-item">
+      <app-card-client [userSelected]="false" [dataUser]="client"></app-card-client>
+    </div>
+  </div>
+
+  <button (click)="createClient()">Criar cliente</button>
+
+  <!-- <p-paginator 
+    (onPageChange)="onPageChange($event)"
+    [first]="currentPage * rowsPerPage"
+    [rows]="rowsPerPage"
+    [totalRecords]="totalPages"
+    [rowsPerPageOptions]="[10, 20, 30]"
+  /> -->
+</div>

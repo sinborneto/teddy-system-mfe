@@ -1,0 +1,11 @@
+<div class="customers-container">
+  <p class="header-text"> Clientes seleciondos:</p>
+  <div class="card-container">
+    <div *ngFor="let client of clients" class="card-item">
+      <app-card-client [userSelected]="true" [dataUser]="client"></app-card-client>
+    </div>
+  </div>
+
+  <button (click)="clearAllSelected()">Limpar clientes selecionados</button>
+
+</div>
