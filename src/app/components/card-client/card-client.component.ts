@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import { ClientModel } from '../../services/client.service';
-import { SharedService } from '@shared/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletedDialogComponent } from '../deleted-dialog/deleted-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
+import { SharedService } from '@teddy-teste/shared';
+
 
 @Component({
   selector: 'app-card-client',

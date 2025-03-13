@@ -1,7 +1,6 @@
-import { SharedService } from '@shared/shared.service';
+import { SharedService } from '@teddy-teste/shared';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SharedModule } from 'primeng/api';
 import { TabsModule } from 'primeng/tabs';
 import { CustomersComponent } from '../customers/customers.component';
 import { CommonModule } from '@angular/common';
@@ -11,7 +10,7 @@ import { CustomersSelectedComponent } from "../customers-selected/customers-sele
 
 @Component({
   selector: 'app-system',
-  imports: [SharedModule, TabsModule, CustomersComponent, CommonModule, CustomersSelectedComponent],
+  imports: [TabsModule, CustomersComponent, CommonModule, CustomersSelectedComponent],
   templateUrl: './system.component.html',
   styleUrl: './system.component.scss'
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardClientComponent } from '../../components/card-client/card-client.component';
 import { CommonModule } from '@angular/common';
-import { SharedService } from '@shared/shared.service';
+import { SharedService } from '@teddy-teste/shared';
 
 @Component({
   selector: 'app-customers-selected',

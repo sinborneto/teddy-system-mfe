@@ -22,6 +22,7 @@
     "@angular/router": "^19.2.0",
     "@primeng/themes": "^19.0.9",
     "@softarc/native-federation-node": "^2.0.10",
+    "@teddy-teste/shared": "^0.0.4",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.8",
     "es-module-shims": "^1.5.12",
