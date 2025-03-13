@@ -8,6 +8,8 @@ module.exports = withNativeFederation({
     './Component': './src/app/pages/system/system.component.ts',
   },
 
+  publicPath: "https://teddy-mu.vercel.app/system-mfe/",
+
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto', transient: true, }),
     "@primeng/themes/types": {
@@ -52,5 +54,5 @@ module.exports = withNativeFederation({
 
   // Please read our FAQ about sharing libs:
   // https://shorturl.at/jmzH0
-  
+
 });

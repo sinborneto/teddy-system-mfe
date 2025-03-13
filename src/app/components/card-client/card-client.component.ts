@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
-import { ClientModel, ClientService } from '../../services/client.service';
-import { SharedService } from '../../../../../host/src/app/shared/shared.service';
+import { ClientModel } from '../../services/client.service';
+import { SharedService } from '@shared/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletedDialogComponent } from '../deleted-dialog/deleted-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
@@ -49,7 +49,7 @@ export class CardClientComponent {
         width: '400px',
         data: { client: client }
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
       });
     }

@@ -1,4 +1,4 @@
-import { SharedService } from './../../../../../host/src/app/shared/shared.service';
+import { SharedService } from '@shared/shared.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedModule } from 'primeng/api';
@@ -24,7 +24,7 @@ export class SystemComponent implements OnInit {
   userName = '';
   sidebarVisible = false;
   logoPath = `${document.baseURI}assets/shared/image/logo_dark.svg`;
-  activeTab = 0; 
+  activeTab = 0;
 
   ngOnInit() {
     this.getUserName();
@@ -36,7 +36,7 @@ export class SystemComponent implements OnInit {
 
   logout(event: Event) {
     event.preventDefault();
-    localStorage.clear(); 
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 
