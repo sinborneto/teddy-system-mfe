@@ -83,7 +83,7 @@ export class CustomersComponent implements OnInit {
   }
 
   onRowsPerPageChange(event: any) {
-    this.loadClients(this.currentPage, event.value.value);
+    this.loadClients(1, event.value.value);
   }
 
   paginate(event: PaginatorState) {
