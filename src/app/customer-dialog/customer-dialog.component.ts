@@ -5,10 +5,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ClientService } from '../services/client.service';
 import { LoadingService } from '../services/loading.service';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-customer-dialog',
-  imports: [MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule,],
+  imports: [MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, InputTextModule, FloatLabelModule],
   templateUrl: './customer-dialog.component.html',
   styleUrl: './customer-dialog.component.scss'
 })

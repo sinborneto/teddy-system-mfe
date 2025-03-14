@@ -1,22 +1,22 @@
-<h1 mat-dialog-title>Criar Cliente</h1>
+<h1 mat-dialog-title class="title-modal">Criar Cliente</h1>
 <div mat-dialog-content>
-  <form>
-    <mat-form-field appearance="fill">
-      <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="client.name" name="name" required />
-    </mat-form-field>
+  <form class="client-form">
+    <p-floatlabel variant="on">
+      <input pInputText id="name" [(ngModel)]="client.name" name="name" required autocomplete="off" class="custom-width" />
+      <label for="name">Nome</label>
+    </p-floatlabel>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Salário</mat-label>
-      <input matInput [(ngModel)]="client.salary" name="salary" required />
-    </mat-form-field>
+    <p-floatlabel variant="on">
+      <input pInputText id="salary" [(ngModel)]="client.salary" name="salary" required autocomplete="off" class="custom-width" />
+      <label for="salary">Salário</label>
+    </p-floatlabel>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Valor da Empresa</mat-label>
-      <input matInput [(ngModel)]="client.companyValuation" name="companyValuation" required />
-    </mat-form-field>
+    <p-floatlabel variant="on">
+      <input pInputText id="companyValuation" [(ngModel)]="client.companyValuation" name="companyValuation" required autocomplete="off" class="custom-width" />
+      <label for="companyValuation">Valor da Empresa</label>
+    </p-floatlabel>
   </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCreate()">Criar Cliente</button>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="onCreate()" class="create-button">Criar Cliente</button>
 </div>

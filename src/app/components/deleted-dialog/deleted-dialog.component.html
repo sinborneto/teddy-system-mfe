@@ -1,7 +1,7 @@
-<h1 mat-dialog-title>Excluir Cliente</h1>
+<h1 mat-dialog-title class="text-bold" >Excluir Cliente</h1>
 <div mat-dialog-content>
-  <p>Você está prestes a excluir o cliente: <span>{{ client.name }}</span></p>
+  <p>Você está prestes a excluir o cliente: <span class="text-bold">{{ client.name }}</span></p>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onDeleted()">Excluir Cliente</button>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="onDeleted()"  class="deleted-button">Excluir Cliente</button>
 </div>

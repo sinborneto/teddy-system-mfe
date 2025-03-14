@@ -5,10 +5,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ClientService } from '../../services/client.service';
 import { LoadingService } from '../../services/loading.service';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+
 
 @Component({
   selector: 'app-update-dialog',
-  imports: [MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule,],
+  imports: [MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, InputTextModule, FloatLabelModule],
   templateUrl: './update-dialog.component.html',
   styleUrl: './update-dialog.component.scss'
 })

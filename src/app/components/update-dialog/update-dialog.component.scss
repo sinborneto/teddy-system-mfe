@@ -1,0 +1,39 @@
+.title-modal{
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.custom-width {
+  width: 100%;
+}
+
+.client-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 5px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.update-button {
+  background-color: rgba(236, 103, 36, 1);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.update-button:hover {
+  background-color: rgb(202, 75, 11);
+}
