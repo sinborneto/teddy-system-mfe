@@ -1,5 +1,21 @@
 <div class="customers-container">
-  <p><span>{{ totalPages }}</span> Clientes encontrados:</p>
+  <div class="header-container">
+    <span class="head-title">
+      <span class="font-bold">{{ totalPages }}</span> Clientes encontrados:
+    </span>
+
+    <div class="dropdown-container">
+      <span class="head-title">Clientes por página</span>
+      <p-dropdown
+        [options]="rowsPerPageList"
+        [(ngModel)]="rowsPerPage"
+        (onChange)="onRowsPerPageChange($event)"
+        optionLabel="value"
+        placeholder="Itens"
+        class="dropdown"
+      ></p-dropdown>
+    </div>
+  </div>
 
   <div *ngIf="isLoading" class="loading-overlay">
     <div class="loading-spinner">

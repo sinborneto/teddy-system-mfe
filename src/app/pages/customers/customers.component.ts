@@ -10,11 +10,13 @@ import { CustomerDialogComponent } from '../../customer-dialog/customer-dialog.c
 import { LoadingService } from '../../services/loading.service';
 import { Subscription } from 'rxjs';
 import { SharedEventService } from '../../shared/shared-event.service';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-customers',
-  imports: [CardClientComponent, PaginatorModule, HttpClientModule, CommonModule, MatDialogModule, ProgressSpinnerModule ],
+  imports: [CardClientComponent, FormsModule , PaginatorModule, HttpClientModule, CommonModule, MatDialogModule, ProgressSpinnerModule, DropdownModule  ],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.scss'
 })
@@ -29,7 +31,14 @@ export class CustomersComponent implements OnInit {
 
   totalPages!: number;
   currentPage: number = 1;
-  rowsPerPage: number = 4;
+  rowsPerPage = { value: 16 };;
+  rowsPerPageList = [
+    { value: 1 },
+    { value: 10 },
+    { value: 16 },
+    { value: 20 },
+    { value: 30 }
+  ];
   clients: ClientModel[] = [];
   rows: number = 1;
   client: ClientModel = {
@@ -42,14 +51,14 @@ export class CustomersComponent implements OnInit {
 
 
   ngOnInit() {
-    this.loadClients(this.currentPage, this.rowsPerPage);
+    this.loadClients(this.currentPage, this.rowsPerPage.value);
     this.subscriptions.push(
       this.loadingService.isLoading$.subscribe(status => {
         this.isLoading = status;
       })
     );
     this.sharedEventService.clientReload$.subscribe(() => {
-      this.loadClients(this.currentPage, this.rowsPerPage);
+      this.loadClients(this.currentPage, this.rowsPerPage.value);
     });
   }
 
@@ -68,18 +77,22 @@ export class CustomersComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'created') {
-        this.loadClients(this.currentPage, this.rowsPerPage);
+        this.loadClients(this.currentPage, this.rowsPerPage.value);
       }
     });
   }
 
+  onRowsPerPageChange(event: any) {
+    this.loadClients(this.currentPage, event.value.value);
+  }
+
   paginate(event: PaginatorState) {
     this.currentPage = (event.page || 0) + 1;
-    this.loadClients(this.currentPage, this.rowsPerPage);
+    this.loadClients(this.currentPage, this.rowsPerPage.value);
   }
 
   onClientReload() {
-    this.loadClients(this.currentPage, this.rowsPerPage);
+    this.loadClients(this.currentPage, this.rowsPerPage.value);
   }
 
   ngOnDestroy() {

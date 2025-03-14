@@ -1,3 +1,30 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinha o dropdown à direita */
+}
+
+.dropdown {
+  min-width: 50px;
+  margin-left: 10px;
+}
+
+.head-title {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
 .customers-container {
   flex: 1;
   background: rgba(245, 245, 245, 1);
