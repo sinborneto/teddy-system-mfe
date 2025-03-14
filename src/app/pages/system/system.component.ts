@@ -36,7 +36,7 @@ export class SystemComponent implements OnInit {
   logout(event: Event) {
     event.preventDefault();
     localStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
   getUserName() {
