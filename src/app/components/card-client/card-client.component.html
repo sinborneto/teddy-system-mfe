@@ -2,7 +2,6 @@
   <p class="card-title">{{dataUser.name}}</p>
   <p>Salário: <span>{{dataUser.salary}}</span></p>
   <p>Empresa: <span>{{dataUser.companyValuation}}</span></p>
-  
   <div class="card-actions" [ngClass]="{'user-selected' : userSelected === true}">
     <button *ngIf="userSelected === false" class="btn-icon add" (click)="saveSelectedClient(dataUser)"><i class="bi bi-plus"></i></button>
     <button *ngIf="userSelected === false" class="btn-icon edit"><i class="bi bi-pencil" (click)="editClient(dataUser)"></i></button>

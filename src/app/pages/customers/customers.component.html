@@ -1,18 +1,28 @@
 <div class="customers-container">
-  <p><span>{{clients.length}}</span> clientes encontrados:</p>
-  <div class="card-container">
-    <div *ngFor="let client of clients" class="card-item">
-      <app-card-client [userSelected]="false" [dataUser]="client"></app-card-client>
+  <p><span>{{ totalPages }}</span> Clientes encontrados:</p>
+
+  <div *ngIf="isLoading" class="loading-overlay">
+    <div class="loading-spinner">
+      <p-progressSpinner></p-progressSpinner>
+      <p>Carregando clientes...</p>
     </div>
   </div>
 
-  <button (click)="createClient()">Criar cliente</button>
+  <div *ngIf="!isLoading" class="card-container">
+    <div *ngFor="let client of clients" class="card-item">
+      <app-card-client
+        [userSelected]="false"
+        [dataUser]="client"
+      ></app-card-client>
+    </div>
+  </div>
 
-  <!-- <p-paginator 
-    (onPageChange)="onPageChange($event)"
-    [first]="currentPage * rowsPerPage"
-    [rows]="rowsPerPage"
+  <p-paginator
+    *ngIf="totalPages >= 1"
+    [rows]="rows"
     [totalRecords]="totalPages"
-    [rowsPerPageOptions]="[10, 20, 30]"
-  /> -->
+    (onPageChange)="paginate($event)"
+  ></p-paginator>
+
+  <button (click)="createClient()">Criar cliente</button>
 </div>

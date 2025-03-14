@@ -29,23 +29,45 @@ button {
 }
 
 button {
-  background-color: transparent; /* Fundo transparente */
-  border: 2px solid rgba(236, 103, 36, 1); /* Borda com a cor especificada */
-  color: rgba(236, 103, 36, 1); /* Cor da letra */
-  padding: 10px 20px; /* Espaçamento interno (ajustável) */
-  width: 100%; /* Ocupa toda a largura do contêiner */
-  font-size: 16px; /* Tamanho da fonte */
-  font-weight: bold; /* Deixa o texto em negrito */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  text-align: center; /* Alinha o texto no centro */
-  border-radius: 5px; /* Arredonda os cantos da borda (opcional) */
-  transition: all 0.3s ease; /* Transição suave para efeitos */
+  background-color: transparent;
+  border: 2px solid rgba(236, 103, 36, 1);
+  color: rgba(236, 103, 36, 1);
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: rgba(236, 103, 36, 0.1); /* Adiciona um fundo sutil no hover */
-  border-color: rgba(236, 103, 36, 1); /* Borda permanece igual no hover */
-  color: rgba(236, 103, 36, 1); /* Cor da letra no hover */
+  background-color: rgba(236, 103, 36, 0.1);
+  border-color: rgba(236, 103, 36, 1);
+  color: rgba(236, 103, 36, 1);
+}
+
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-spinner {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1200px) {

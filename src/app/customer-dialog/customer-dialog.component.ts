@@ -4,6 +4,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ClientService } from '../services/client.service';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-customer-dialog',
@@ -13,25 +14,31 @@ import { ClientService } from '../services/client.service';
 })
 export class CustomerDialogComponent {
 
-  
   client = {
     name: '',
     salary: 0,
     companyValuation: 0
   };
-  
-  constructor(public dialogRef: MatDialogRef<CustomerDialogComponent>, private clientService: ClientService) {}
+
+  constructor(
+    public dialogRef: MatDialogRef<CustomerDialogComponent>,
+    private clientService: ClientService,
+    private loadingService: LoadingService
+  ) {}
 
   onCreate() {
-    console.log(this.client);
+    this.loadingService.show();
+
     const clientFormatted = {
       name: this.client.name,
       salary: Number(this.client.salary),
       companyValuation: Number(this.client.companyValuation)
-    }
+    };
+
     this.clientService.createUser(clientFormatted).subscribe(() => {
-      this.dialogRef.close();
-    })
+      this.dialogRef.close('created');
+      this.loadingService.hide();
+    });
   }
 
 }

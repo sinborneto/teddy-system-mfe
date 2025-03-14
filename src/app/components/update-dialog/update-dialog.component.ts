@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ClientService } from '../../services/client.service';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-update-dialog',
@@ -19,8 +20,12 @@ export class UpdateDialogComponent {
     salary: 0,
     companyValuation: 0
   };
-  
-  constructor(public dialogRef: MatDialogRef<UpdateDialogComponent>, private clientService: ClientService , @Inject(MAT_DIALOG_DATA) public data: any) {
+
+  constructor(
+    public dialogRef: MatDialogRef<UpdateDialogComponent>,
+    private clientService: ClientService,
+    private loadingService: LoadingService,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
     this.client = data.client;
   }
 
@@ -30,8 +35,10 @@ export class UpdateDialogComponent {
       salary: Number(this.client.salary),
       companyValuation: Number(this.client.companyValuation)
     }
-    this.clientService.updateUser(this.client.id, clientFormatted).subscribe()
-    this.dialogRef.close();
+    this.clientService.updateUser(this.client.id, clientFormatted).subscribe(() => {
+      this.dialogRef.close('updated');
+      this.loadingService.hide();
+    })
   }
 
 }

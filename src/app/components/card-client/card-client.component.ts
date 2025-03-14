@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletedDialogComponent } from '../deleted-dialog/deleted-dialog.component';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 import { SharedService } from '@teddy-teste/shared';
+import { SharedEventService } from '../../shared/shared-event.service';
 
 
 @Component({
@@ -16,9 +17,6 @@ import { SharedService } from '@teddy-teste/shared';
 export class CardClientComponent {
   private sharedService = inject(SharedService);
 
-  constructor(public dialog: MatDialog){}
-
-
   @Input() userSelected = false
   @Input() dataUser: ClientModel = {
     name: 'sss',
@@ -26,8 +24,10 @@ export class CardClientComponent {
     companyValuation: 0,
   }
 
+
+  constructor(public dialog: MatDialog, private sharedEventService: SharedEventService){}
+
   saveSelectedClient(client: any) {
-    console.log(client)
     this.sharedService.setClient(client);
   }
 
@@ -38,7 +38,9 @@ export class CardClientComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('O modal foi fechado');
+      if (result === 'updated') {
+        this.sharedEventService.emitClientReload();
+      }
     });
   }
 
@@ -52,6 +54,9 @@ export class CardClientComponent {
       });
 
       dialogRef.afterClosed().subscribe(result => {
+        if (result === 'deleted') {
+          this.sharedEventService.emitClientReload();
+        }
       });
     }
   }

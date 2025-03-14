@@ -22,7 +22,7 @@ export class ClientService {
   }
 
   getUsers(page?: number, limit?: number): Observable<ClientModel[]> {
-   
+
     return this.http.get<ClientModel[]>(`${this.baseUrl}users?page=${page}&limit=${limit}`);
   }
 
@@ -34,7 +34,8 @@ export class ClientService {
     return this.http.patch<ClientModel>(`${this.baseUrl}users/${id}`, user);
   }
 
-  deleteUser(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}users/${id}`);
+  deleteUser(id: string) {
+    return this.http.delete(`${this.baseUrl}users/${id}`, { responseType: 'text' });
   }
+
 }

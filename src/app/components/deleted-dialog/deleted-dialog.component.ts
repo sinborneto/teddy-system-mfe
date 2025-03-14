@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ClientService } from '../../services/client.service';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-deleted-dialog',
@@ -19,15 +20,24 @@ export class DeletedDialogComponent {
     salary: 0,
     companyValuation: 0
   };
-  
-  constructor(public dialogRef: MatDialogRef<DeletedDialogComponent>, private clientService: ClientService , @Inject(MAT_DIALOG_DATA) public data: any) {
+
+  constructor(
+    public dialogRef: MatDialogRef<DeletedDialogComponent>,
+    private clientService: ClientService,
+    private loadingService: LoadingService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
     this.client = data.client;
   }
 
-  onDeleted() {
-    this.clientService.deleteUser(this.client.id).subscribe(() => location.reload())
-    setTimeout(() => location.reload() , 1000)
-    this.dialogRef.close();
-  }
+ onDeleted() {
+  this.loadingService.show();
+  this.clientService.deleteUser(this.client.id).subscribe(
+    () => {
+      this.dialogRef.close('deleted');
+      this.loadingService.hide();
+    }
+  );
+}
 
 }
